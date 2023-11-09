@@ -242,6 +242,9 @@
     flex-wrap: wrap;
     overflow-x: auto;
   }
+  .home-species-container{
+    width: 100%;
+  }
 }
 
 

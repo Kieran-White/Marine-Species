@@ -34,6 +34,10 @@
   padding-bottom: var(--dl-space-space-halfunit);
   justify-content: center;
 }
+.nav-bar-navs :hover {
+  background-color:#c5c7c9;
+  padding: 6px;
+}
 .nav-bar-home {
   text-decoration: none;
 }

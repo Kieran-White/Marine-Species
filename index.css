@@ -13,10 +13,10 @@
 @media screen and (min-width:850px)
 {
   .home-page-section{
-    flex-wrwap: wrap;
+    flex-wrap: wrap;
   }
   .home-article-section{
-    widht: 100%;
+    width: 100%;
     align-self:center;
   }
 }

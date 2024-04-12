@@ -36,3 +36,27 @@ document.addEventListener("DOMContentLoaded", function () {
         speciesListContainer.appendChild(speciesContainer);
     }
 });
+
+// Database fetchers
+async function getSpeciesAndDetails() {
+    try {
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        var url = "";
+
+        var requestOptions = {
+            method: 'GET',
+            headers: myHeaders,
+            redirect: 'follow'
+        };
+
+        const response = await fetch(url, requestOptions)
+        if (response.ok) {
+            const body = JSON.parse((await response.json()).body);
+            return body;
+        }
+    } catch (error) {
+        console.log('error', error);
+        return "Database Error";
+    }
+}

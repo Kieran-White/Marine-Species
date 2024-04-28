@@ -1,9 +1,24 @@
+import './Home.css';
+import ArticleList from '../components/ArticleList';
+import SpeciesList from '../components/SpeciesList';
+
 export default function Home(){
     return (
         <>
-            <h1>h1</h1>
-            <p>p1</p>
-            <p>p2</p>
+        <head>
+
+        </head>
+        <body>
+            <div>
+                <div className="home-container">
+                    <div className='home-page-container'>
+                        <h1 className='home-title'>Endangered Species</h1>
+                        <SpeciesList />
+                        <ArticleList />
+                    </div>
+                </div>
+            </div>
+        </body>
         </>
     );
 }

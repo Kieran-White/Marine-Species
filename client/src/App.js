@@ -10,6 +10,7 @@ const OceanMap = lazy(() => import('./pages/OceanMap'));
 const Donations = lazy(() => import('./pages/Donations'));
 const Articles = lazy(() => import('./pages/Articles'));
 const NoMatch = lazy(() => import('./pages/NoMatch'));
+const Species = lazy(() => import('./pages/Species'))
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
                   <Route path="/oceanmap" element={<OceanMap />}/>
                   <Route path="/donations" element={<Donations />}/>
                   <Route path="/articles" element={<Articles />}/>
+                  <Route path="/species" element={<Species />}/>
                   <Route path='*' element={<NoMatch />}/>
               </Routes>
           </Suspense>

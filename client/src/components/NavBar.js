@@ -8,6 +8,15 @@ export default function NavBar(){
                 <li>
                     <NavLink to="/">Home</NavLink>
                 </li>
+                <li>
+                    <NavLink to="/oceanmap">OceanMap</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/donations">Donations</NavLink>                
+                </li>
+                <li>
+                    <NavLink to="/articles">Articles</NavLink>
+                </li>
             </ul>
         </nav>
     );

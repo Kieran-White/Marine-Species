@@ -22,7 +22,7 @@ const useFetchSpeciesData = (speciesName) => {
             }
         };
 
-        FetchSpeciesData();
+        fetchSpeciesData();
     }, [speciesName]);
 
     return { species, loading, error};

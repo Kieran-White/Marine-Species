@@ -29,10 +29,27 @@ app.get('/api/:species', async (req, res) =>{
       }
       res.json(species);
     } catch (error) {
-      console.error('Error occurred while fetching species:', error);
+      console.error('Error occurred while fetching species data:', error);
       res.status(500).json({ error: 'Internal server error' });
     }
 });
+
+// Fetches all Species and returns a list of names
+app.get('api/species', async (req, res) => {
+  try {
+    // Query all documents
+    const allSpecies = await Species.find({}, 'species');
+
+    //Extract species names
+    const speciesNames = allSpecies.map(species => species.species);
+
+    res.json(speciesNames);
+  } catch (error) {
+    console.error('Error occured while fetching species:', error);
+    res.status(500).json({error: 'Internal server error'});
+  }
+});
+
 
 // Start the server
 app.listen(port, () => {

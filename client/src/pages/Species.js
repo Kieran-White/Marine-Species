@@ -1,5 +1,4 @@
-import { useState } from "react";
-import useFetchSpeciesData from "../components/FetchSpeciesData";
+import { useEffect, useState } from "react";
 import "./Species.css";
 
 export default function Species(){
@@ -7,22 +6,25 @@ export default function Species(){
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    const setSpeciesData = async () => {
-        try {
-            const response = await fetch("/api/Hawksbill Turtle");
-            if (!response.ok) {
-                throw new Error("Failed to fetch data")
+    useEffect(() => {
+        const setSpeciesData = async () => {
+            try {
+                const response = await fetch("/api/Hawksbill Turtle");
+                if (!response.ok) {
+                    throw new Error("Failed to fetch data")
+                }
+                const data = await response.json();
+                setSpecies(data);
+                setLoading(false);
+            } catch (error) {
+                setError(error);
+                setLoading(false);
             }
-            const data = await response.json();
-            setSpecies(data);
-            setLoading(false);
-        } catch (error) {
-            setError(error);
-            setLoading(false);
+        };
+        if (!species) {
+        setSpeciesData();
         }
-
-        console.log(species.endangerLevel)
-    }
+    });
 
     //const { speciesData, loading, error } = useFetchSpeciesData("Hawksbill Turtle");
     //console.log(speciesData);
@@ -33,8 +35,19 @@ export default function Species(){
     const speciesScientific = "";//speciesData.scientificName;
     const speciesLength = "";//speciesData.length;
     const speciesHabitats = "";//speciesData.habitats;
-    setSpeciesData();
+    if (!species) {
+        return <div className='profile-page-wrapper'>Species not found</div>;
+      }
+    
+      if (loading) {
+        return <div>Loading...</div>;
+      }
+    
+      if (error) {
+        return <div className='profile-page-wrapper'>Error: {error.message}</div>;
+      }
 
+    
     return (
         <>
             
@@ -43,8 +56,8 @@ export default function Species(){
                     src={speciesImg}
                     className="SpeciesImage"
                 />
-                <h2>Status: {speciesStatus}</h2>
-                <p>Common Name: {speciesCommon}</p>
+                <h2>Status: {species.endangerLevel}</h2>
+                <p>Common Name: {species.species}</p>
                 <p>Scientific Name: {speciesScientific}</p>
                 <p>Length: {speciesLength}</p>
                 <p>Habitats: {speciesHabitats}</p>

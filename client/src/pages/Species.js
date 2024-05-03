@@ -1,40 +1,18 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import "./Species.css";
+import useFetchSpeciesData from "../components/FetchSpeciesData";
 
 export default function Species(){
-    const [species, setSpecies] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const { species, loading, error } = useFetchSpeciesData("Hawksbill Turtle")
 
     useEffect(() => {
-        const setSpeciesData = async () => {
-            try {
-                const response = await fetch("/api/Hawksbill Turtle");
-                if (!response.ok) {
-                    throw new Error("Failed to fetch data")
-                }
-                const data = await response.json();
-                setSpecies(data);
-                setLoading(false);
-            } catch (error) {
-                setError(error);
-                setLoading(false);
-            }
-        };
-        if (!species) {
-        setSpeciesData();
-        }
+        
     });
 
     //const { speciesData, loading, error } = useFetchSpeciesData("Hawksbill Turtle");
     //console.log(speciesData);
 
-    const speciesImg = "";//speciesData.speciesImg;
-    const speciesStatus = "";//speciesData.endangerLevel;
-    const speciesCommon = "";//speciesData.commonName;
-    const speciesScientific = "";//speciesData.scientificName;
-    const speciesLength = "";//speciesData.length;
-    const speciesHabitats = "";//speciesData.habitats;
+    
     if (!species) {
         return <div className='profile-page-wrapper'>Species not found</div>;
       }
@@ -47,17 +25,27 @@ export default function Species(){
         return <div className='profile-page-wrapper'>Error: {error.message}</div>;
       }
 
+    // Define species stats
+    const speciesImg = `../images/${species.speciesImg}`;
+    console.log(speciesImg);
+    const speciesStatus = species.endangerLevel;
+    const speciesCommon = species.species;
+    const speciesScientific = "";//speciesData.scientificName;    
+    const speciesLength = "";//speciesData.length;
+    const speciesHabitats = "";//speciesData.habitats;
+
     
     return (
         <>
             
             <div className="SpeciesInfoGrid">
                 <img
-                    src={speciesImg}
+                    src={require(`../images/${species.speciesImg}`)}
                     className="SpeciesImage"
+                    alt="animal"
                 />
-                <h2>Status: {species.endangerLevel}</h2>
-                <p>Common Name: {species.species}</p>
+                <h2>Status: {speciesStatus}</h2>
+                <p>Common Name: {speciesCommon}</p>
                 <p>Scientific Name: {speciesScientific}</p>
                 <p>Length: {speciesLength}</p>
                 <p>Habitats: {speciesHabitats}</p>

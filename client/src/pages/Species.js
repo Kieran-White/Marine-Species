@@ -26,8 +26,6 @@ export default function Species(){
       }
 
     // Define species stats
-    const speciesImg = `../images/${species.speciesImg}`;
-    console.log(speciesImg);
     const speciesStatus = species.endangerLevel;
     const speciesCommon = species.species;
     const speciesScientific = "";//speciesData.scientificName;    
@@ -37,7 +35,6 @@ export default function Species(){
     
     return (
         <>
-            
             <div className="SpeciesInfoGrid">
                 <img
                     src={require(`../images/${species.speciesImg}`)}

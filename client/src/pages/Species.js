@@ -1,13 +1,39 @@
+import { useState } from "react";
+import useFetchSpeciesData from "../components/FetchSpeciesData";
 import "./Species.css";
 
 export default function Species(){
+    const [species, setSpecies] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
-    const speciesImg = "";
-    const speciesStatus = "";
-    const speciesCommon = "";
-    const specScientific = "";
-    const specLength = "";
-    const specHabitats = "";
+    const setSpeciesData = async () => {
+        try {
+            const response = await fetch("/api/Hawksbill Turtle");
+            if (!response.ok) {
+                throw new Error("Failed to fetch data")
+            }
+            const data = await response.json();
+            setSpecies(data);
+            setLoading(false);
+        } catch (error) {
+            setError(error);
+            setLoading(false);
+        }
+
+        console.log(species.endangerLevel)
+    }
+
+    //const { speciesData, loading, error } = useFetchSpeciesData("Hawksbill Turtle");
+    //console.log(speciesData);
+
+    const speciesImg = "";//speciesData.speciesImg;
+    const speciesStatus = "";//speciesData.endangerLevel;
+    const speciesCommon = "";//speciesData.commonName;
+    const speciesScientific = "";//speciesData.scientificName;
+    const speciesLength = "";//speciesData.length;
+    const speciesHabitats = "";//speciesData.habitats;
+    setSpeciesData();
 
     return (
         <>
@@ -19,9 +45,9 @@ export default function Species(){
                 />
                 <h2>Status: {speciesStatus}</h2>
                 <p>Common Name: {speciesCommon}</p>
-                <p>Scientific Name: {specScientific}</p>
-                <p>Length: {specLength}</p>
-                <p>Habitats: {specHabitats}</p>
+                <p>Scientific Name: {speciesScientific}</p>
+                <p>Length: {speciesLength}</p>
+                <p>Habitats: {speciesHabitats}</p>
                 <img
                     src="{}"
                     className="StatusImage"

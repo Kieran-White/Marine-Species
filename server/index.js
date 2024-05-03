@@ -18,13 +18,12 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Fetches Species details using species name
-//Fetches kit using kitId
 app.get('/api/:species', async (req, res) =>{
     try {
-      // Find kit in database using kitId
+      // Find species in database using species name
       const species = await Species.findOne({ species: req.params.species });
   
-      // If there is no kit, return error
+      // If there is no result, return error
       if (!species) {
         return res.status(404).json({ error: 'Species not found' });
       }

@@ -1,0 +1,35 @@
+
+.home-species-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.species-container {
+    text-align: center;
+}
+
+.species-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.species-image {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    min-height: 175px;
+}
+
+.species-name {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.species-rating {
+    display: block;
+    margin-top: 5px;
+    width: 100%;
+}

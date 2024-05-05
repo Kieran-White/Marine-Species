@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 
 export default function SpeciesList() {
     const speciesList = ["Hawksbill Turtle", "Vaquita", "Leatherback Turtle", "Blue Whale", "Stellar Sea Lion", "Monk Seal", "Green Sea Turtle", "Nile Crocodile", "Ganges River Dolphin"];
@@ -9,11 +10,11 @@ export default function SpeciesList() {
         <div className="home-species-list" id="speciesListContainer">
             {speciesList.map((species, index) => (
                 <div key={index} className="species-container species-root-class-name">
-                <a href="species">
-                    <img alt="animal-image" src={`images/${imgList[index]}`} className="species-image" />
+                <Link to={`/species/${encodeURIComponent(species)}`}>
+                    <img alt="animal-image" src={require(`../images/${imgList[index]}`)} className="species-image" />
                     <span className="species-name">{species}</span>
-                    <img alt="rating-image" src={`images/${endangerList[levelList[index]]}`} width="145" className="species-rating" />
-                </a>
+                    <img alt="rating-image" src={require(`../images/${endangerList[levelList[index]]}`)} width="145" className="species-rating" />
+                </Link>
                 </div>
             ))}
         </div>

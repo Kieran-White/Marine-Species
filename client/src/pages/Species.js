@@ -1,9 +1,11 @@
+import { useParams } from 'react-router-dom';
 import { useEffect } from "react";
 import "./Species.css";
 import useFetchSpeciesData from "../components/FetchSpeciesData";
 
 export default function Species(){
-    const { species, loading, error } = useFetchSpeciesData("Hawksbill Turtle")
+    const { speciesName } = useParams();
+    const { species, loading, error } = useFetchSpeciesData(speciesName)
 
     useEffect(() => {
         
@@ -47,7 +49,7 @@ export default function Species(){
                 <p>Length: {speciesLength}</p>
                 <p>Habitats: {speciesHabitats}</p>
                 <img
-                    src="{}"
+                    src="{require(`../images/${}`)}"
                     className="StatusImage"
                 />
             </div>

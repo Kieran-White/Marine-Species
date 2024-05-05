@@ -22,7 +22,7 @@ function App() {
                   <Route path="/oceanmap" element={<OceanMap />}/>
                   <Route path="/donations" element={<Donations />}/>
                   <Route path="/articles" element={<Articles />}/>
-                  <Route path="/species" element={<Species />}/>
+                  <Route path="/species/:speciesName" element={<Species />}/>
                   <Route path='*' element={<NoMatch />}/>
               </Routes>
           </Suspense>

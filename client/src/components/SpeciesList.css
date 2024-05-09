@@ -1,21 +1,36 @@
 
+#speciesListContainer {
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: lightgray;
+}
+
 .home-species-list {
+    text-decoration: none;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
 }
 
 .species-container {
+    text-decoration: inherit;
+    padding: 5px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-radius: 1px;
+    background-color: lightblue;
     text-align: center;
 }
 
 .species-link {
-    text-decoration: none;
+    text-decoration: inherit;
     color: inherit;
     display: block;
 }
 
 .species-image {
+    text-decoration: inherit;
     width: 100%;
     height: auto;
     max-height: 200px;
@@ -23,13 +38,22 @@
 }
 
 .species-name {
+    text-decoration: inherit;
     display: block;
     margin-top: 10px;
     font-weight: bold;
+    color: rgb(64, 64, 64);
 }
 
 .species-rating {
+    text-decoration: inherit;
+    padding: 1px;
     display: block;
     margin-top: 5px;
     width: 100%;
+    background-color: #eef1f35d;
+}
+
+a {
+    text-decoration: none;
 }

@@ -47,7 +47,6 @@ export default function NavBar(){
                     <NavLink to="/oceanmap">OceanMap</NavLink>
                     <NavLink to="/donations">Donations</NavLink>                
                     <NavLink to="/articles">Articles</NavLink>
-                    <NavLink to="/species">Species</NavLink>   
                 </nav>
                 <input 
                     type="text" 

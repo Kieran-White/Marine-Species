@@ -50,6 +50,18 @@ app.get('api/species', async (req, res) => {
   }
 });
 
+// Define route to search species
+app.get('/api/search/:q', async (req, res) => {
+  const { q } = req.params; // Get the search query from request parameters
+  try {
+    // Perform search based on the query
+    const species = await Species.find({ species: { $regex: new RegExp(q, 'i') } });
+    res.json({ results: species });
+  } catch (error) {
+    console.error('Error searching species:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
 
 // Start the server
 app.listen(port, () => {

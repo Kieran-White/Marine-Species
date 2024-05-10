@@ -13,9 +13,11 @@
 
   .navSearch {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
     gap: 10px;
     padding-bottom: 20px;
+    position: relative; /* Make the parent container of the dropdown relative */
   }
   
   .nav-bar-navs {
@@ -37,6 +39,29 @@
     text-decoration: none;
   }
   
+  .search-results-dropdown {
+    position: absolute;
+    top: 100%; /* Position the dropdown below the input */
+    left: 0;
+    z-index: 1000; /* Ensure the dropdown appears above other elements */
+    background-color: #fff; /* Background color */
+    border: 1px solid #ccc; /* Border */
+    border-radius: 4px; /* Border radius */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow */
+    max-height: 200px; /* Limit maximum height of dropdown */
+    overflow-y: auto; /* Enable vertical scrolling if needed */
+    width: calc(100% - 20px); /* Set dropdown width to match the input width minus padding */
+  }
+  
+  .search-results-dropdown > div {
+    padding: 8px 12px; /* Padding for each result item */
+    cursor: pointer; /* Show pointer cursor on hover */
+  }
+  
+  .search-results-dropdown > div:hover {
+    background-color: #f0f0f0; /* Background color on hover */
+  }
+
   @media screen and (max-width: 600px) {
     .nav-bar-navs {
       justify-content: flex-start;

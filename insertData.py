@@ -16,7 +16,7 @@ def add_species():
 
     # Create document
     new_species = {
-        'commonName': common_name,
+        'species': common_name,
         'scientificName': scientific_name,
         'speciesImg': species_img,
         'endangerLevel': endanger_level,

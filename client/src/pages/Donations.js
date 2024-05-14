@@ -28,7 +28,7 @@ export default function Donations(){
                         <a href="https://www.montereybayaquarium.org/">Monterey Bay Aquarium</a> <br />
                     </div>   
                     <img
-                    src='https://png.pngtree.com/png-clipart/20231019/original/pngtree-america-map-black-and-white-brown-picture-image_13182862.png'
+                    src='https://cdn.pixabay.com/photo/2015/04/09/16/36/america-714733_640.png'
                     alt='Map of the Americas'
                     className='donations-map'
                     /> 

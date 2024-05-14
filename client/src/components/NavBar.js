@@ -9,22 +9,19 @@ export default function NavBar(){
 
     const handleSearchInputChange = (event) => {
         const query = event.target.value;
+        setSearchQuery(query);
+        
+        clearTimeout(timerId);
+
         if (query === "") {
-            
-            setSearchQuery(query);
-            clearTimeout(timerId);
             timerId = setTimeout(() => {
                 setSearchResults([]);
                 }, 1000);
         } else {
-            setSearchQuery(query);
-            clearTimeout(timerId);
             timerId = setTimeout(() => {
                 fetchSearchResults(query);
-                }, 1000);
+                }, 900);
         }
-        
-
     };
 
     const fetchSearchResults = async (query) => {
@@ -43,7 +40,7 @@ export default function NavBar(){
     return (
         <div className='nav-bar-container'>
             <h1 className='home-title'>Endangered Species</h1>
-            <div className="navSearch">
+            <div className="nav-search">
                 <nav className='nav-bar-navs'>
                     <NavLink to="/">Home</NavLink>
                     <NavLink to="/oceanmap">OceanMap</NavLink>

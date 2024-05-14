@@ -11,7 +11,7 @@
     background-color: #d7d7d7;
   }
 
-  .navSearch {
+  .nav-search {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -27,10 +27,7 @@
     padding: 6px;
     flex-wrap: wrap;
     align-items: center;
-    padding-top: var(--dl-space-space-halfunit);
-    padding-left: var(--dl-space-space-halfunit);
-    padding-right: var(--dl-space-space-halfunit);
-    padding-bottom: var(--dl-space-space-halfunit);
+    padding: 10px;
     justify-content: space-between;
   }
   
@@ -74,7 +71,6 @@
   
   .nav-bar-navs a:hover {
     background-color: #c5c7c9;
-    padding: 20px;
   }
   
   .nav-bar-search-bar {

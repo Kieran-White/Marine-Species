@@ -17,6 +17,22 @@ mongoose.connect('mongodb://connorearneybs3221:IwT3a5xY75iviD3407DWDJBUPzcMYZPyC
 app.use(bodyParser.json());
 app.use(cors());
 
+// Fetches all Species and returns a list of names
+app.get('/api/species', async (req, res) => {
+  try {
+    // Query all documents
+    const allSpecies = await Species.find({}, 'species');
+
+    //Extract species names
+    const speciesNames = allSpecies.map(species => species.species);
+
+    res.json(speciesNames);
+  } catch (error) {
+    console.error('Error occured while fetching species:', error);
+    res.status(500).json({error: 'Internal server error'});
+  }
+});
+
 // Fetches Species details using species name
 app.get('/api/:species', async (req, res) =>{
     try {
@@ -32,22 +48,6 @@ app.get('/api/:species', async (req, res) =>{
       console.error('Error occurred while fetching species data:', error);
       res.status(500).json({ error: 'Internal server error' });
     }
-});
-
-// Fetches all Species and returns a list of names
-app.get('api/species', async (req, res) => {
-  try {
-    // Query all documents
-    const allSpecies = await Species.find({}, 'species');
-
-    //Extract species names
-    const speciesNames = allSpecies.map(species => species.species);
-
-    res.json(speciesNames);
-  } catch (error) {
-    console.error('Error occured while fetching species:', error);
-    res.status(500).json({error: 'Internal server error'});
-  }
 });
 
 // Define route to search species
@@ -67,3 +67,5 @@ app.get('/api/search/:q', async (req, res) => {
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
   });
+
+module.exports = app;

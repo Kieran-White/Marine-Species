@@ -36,7 +36,7 @@ export default function Species(){
 
     
     return (
-        <>
+        <div className='SpeciesContainer'>
             <div className="SpeciesInfoGrid">
                 <img
                     src={require(`../images/${species.speciesImg}`)}
@@ -56,6 +56,6 @@ export default function Species(){
             <div className="SpeciesText">
                 <p>Species text information</p>
             </div>
-        </>
+        </div>
     );
 }

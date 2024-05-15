@@ -1,4 +1,14 @@
 
+.SpeciesContainer {
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: lightgray;
+}
+
 .SpeciesInfoGrid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;

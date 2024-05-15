@@ -13,9 +13,9 @@
 
   .navSearch {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
     padding-bottom: 20px;
     position: relative; /* Make the parent container of the dropdown relative */
   }
@@ -74,7 +74,7 @@
   
   .nav-bar-navs a:hover {
     background-color: #c5c7c9;
-    padding: 20px;
+    padding: 10px;
   }
   
   .nav-bar-search-bar {

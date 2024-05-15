@@ -10,9 +10,8 @@ export default function Species(){
     useEffect(() => {
         
     });
-
-    //const { speciesData, loading, error } = useFetchSpeciesData("Hawksbill Turtle");
-    //console.log(speciesData);
+    
+    console.log(species);
 
     
     if (!species) {
@@ -27,12 +26,14 @@ export default function Species(){
         return <div className='profile-page-wrapper'>Error: {error.message}</div>;
       }
 
+      const endangerList = ["least_concern.png", "near_threatened.png", "vulnerable.png", "endangered.png", "critically_endangered.png", "extinct_in_the_wild.png", "extinct.png"];
     // Define species stats
     const speciesStatus = species.endangerLevel;
     const speciesCommon = species.species;
-    const speciesScientific = "";//speciesData.scientificName;    
-    const speciesLength = "";//speciesData.length;
-    const speciesHabitats = "";//speciesData.habitats;
+    const speciesScientific = species.scientificName;    
+    const speciesLength = species.length;
+    const speciesHabitats = species.habitats;
+    const speciesInformation = species.information;
 
     
     return (
@@ -43,18 +44,20 @@ export default function Species(){
                     className="SpeciesImage"
                     alt="animal"
                 />
-                <h2>Status: {speciesStatus}</h2>
+                <h2>Status:
+                    <img
+                    src={require(`../images/${endangerList[speciesStatus]}`)}
+                    className="StatusImage"
+                    />
+                </h2>
                 <p>Common Name: {speciesCommon}</p>
                 <p>Scientific Name: {speciesScientific}</p>
                 <p>Length: {speciesLength}</p>
                 <p>Habitats: {speciesHabitats}</p>
-                <img
-                    src="{require(`../images/${}`)}"
-                    className="StatusImage"
-                />
+
             </div>
             <div className="SpeciesText">
-                <p>Species text information</p>
+                <p>{speciesInformation}</p>
             </div>
         </div>
     );

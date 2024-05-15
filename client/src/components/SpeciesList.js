@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom';
 import "./SpeciesList.css";
 
 export default function SpeciesList() {
-    const speciesList = ["Hawksbill Turtle", "Vaquita", "Leatherback Turtle", "Blue Whale", "Stellar Sea Lion", "Monk Seal", "Green Sea Turtle", "Nile Crocodile", "Ganges River Dolphin"];
-    const imgList = ["hawksbill_turtle.jpg", "vaquita.jpg", "leatherback_turtle.jpg", "blue_whale.jpg", "stellar_sea_lion.jpg", "monk_seal.jpg", "green_sea_turtle.jpg", "nile_crocodile.jpg", "ganges_river_dolphin.jpg"]
-    const levelList = [5, 5, 2, 3, 3, 3, 3, 0, 3]
+    const speciesList = ["Hawksbill Turtle", "Vaquita", "Leatherback Turtle", "Blue Whale", "Sea Lions", "Green Turtle", "Ganges River Dolphin"];
+    const imgList = ["hawksbill_turtle.jpg", "vaquita.jpg", "leatherback_turtle.jpg", "blue_whale.jpg", "sea_lions.jpg", "green_turtle.jpg", "ganges_river_dolphin.jpg"]
+    const levelList = [4, 4, 2, 3, 3, 3, 1, 3]
     const endangerList = ["least_concern.png", "near_threatened.png", "vulnerable.png", "endangered.png", "critically_endangered.png", "extinct_in_the_wild.png", "extinct.png"];
 
     return (

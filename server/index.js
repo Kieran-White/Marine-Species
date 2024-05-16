@@ -21,12 +21,9 @@ app.use(cors());
 app.get('/api/species', async (req, res) => {
   try {
     // Query all documents
-    const allSpecies = await Species.find({}, 'species');
+    const allSpecies = await Species.find({});
 
-    //Extract species names
-    const speciesNames = allSpecies.map(species => species.species);
-
-    res.json(speciesNames);
+    res.json(allSpecies);
   } catch (error) {
     console.error('Error occured while fetching species:', error);
     res.status(500).json({error: 'Internal server error'});
@@ -34,7 +31,7 @@ app.get('/api/species', async (req, res) => {
 });
 
 // Fetches Species details using species name
-app.get('/api/:species', async (req, res) =>{
+app.get('/api/species/:species', async (req, res) =>{
     try {
       // Find species in database using species name
       const species = await Species.findOne({ species: req.params.species });

@@ -5,7 +5,7 @@ import useFetchSpeciesData from "../components/FetchSpeciesData";
 
 export default function Species(){
     const { speciesName } = useParams();
-    const { species, loading, error } = useFetchSpeciesData(speciesName)
+    const { data: species, loading, error } = useFetchSpeciesData(speciesName)
 
     useEffect(() => {
         

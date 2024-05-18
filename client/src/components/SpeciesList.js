@@ -1,15 +1,11 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import "./SpeciesList.css";
 import useFetchSpeciesData from './FetchSpeciesData';
-import { useEffect } from 'react';
 
 export default function SpeciesList() {
 
     const { data, loading, error } = useFetchSpeciesData();
-
-    useEffect(() => {
-
-    });
 
     console.log(data);
 

@@ -27,7 +27,7 @@ const useFetchSpeciesData = (speciesName = null) => {
         fetchSpeciesData();
     }, [speciesName]);
 
-    return { data, loading, error};
+    return { data, loading, error };
 };
 
 export default useFetchSpeciesData;

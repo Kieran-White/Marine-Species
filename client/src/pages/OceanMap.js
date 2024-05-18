@@ -1,4 +1,4 @@
-export default function OceanMap(){
+export default function OceanMap() {
     return (
         <>
             <h1>h1</h1>

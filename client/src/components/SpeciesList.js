@@ -12,13 +12,13 @@ export default function SpeciesList() {
     });
 
     console.log(data);
-    
+
     if (loading) {
-    return <div>Loading...</div>;
+        return <div>Loading...</div>;
     }
 
     if (error) {
-    return <div className='profile-page-wrapper'>Error: {error.message}</div>;
+        return <div className='profile-page-wrapper'>Error: {error.message}</div>;
     }
 
     if (!data || data.length === 0) {
@@ -33,15 +33,15 @@ export default function SpeciesList() {
                 <div key={index} className="species-container species-root-class-name">
                     <Link to={`/species/${encodeURIComponent(speciesData.species)}`}>
                         <img
-                            alt={`${speciesData.species}-image`} 
+                            alt={`${speciesData.species}-image`}
                             src={require(`../images/${speciesData.speciesImg}`)}
                             className="species-image" />
                         <span className="species-name">{speciesData.species}</span>
                         <img
-                        alt="rating-image"
-                        src={require(`../images/${endangerList[speciesData.endangerLevel]}`)}
-                        width="145"
-                        className="species-rating" />
+                            alt="rating-image"
+                            src={require(`../images/${endangerList[speciesData.endangerLevel]}`)}
+                            width="145"
+                            className="species-rating" />
                     </Link>
                 </div>
             ))}

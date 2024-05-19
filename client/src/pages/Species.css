@@ -1,3 +1,12 @@
+.SpeciesContainer {
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: lightgray;
+}
 
 .SpeciesInfoGrid {
     display: grid;
@@ -6,7 +15,9 @@
 }
 
 h2 {
-    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+    grid-column: 2 / 4;
     grid-row: 1;
 }
 
@@ -26,6 +37,7 @@ img {
 }
 
 .StatusImage {
-    grid-column: 3;
-    grid-row: 1;
+    width: 80%;
+    padding: 2px;
+    background-color: rgb(180, 180, 180);
 }

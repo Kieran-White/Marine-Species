@@ -13,21 +13,21 @@ const NoMatch = lazy(() => import('./pages/NoMatch'));
 const Species = lazy(() => import('./pages/Species'))
 
 function App() {
-  return (
-      <>
-          <NavBar />
-          <Suspense fallback={<div className='container'>Loading...</div>}>
-              <Routes>
-                  <Route path="/" element={<Home />}/>
-                  <Route path="/oceanmap" element={<OceanMap />}/>
-                  <Route path="/donations" element={<Donations />}/>
-                  <Route path="/articles" element={<Articles />}/>
-                  <Route path="/species/:speciesName" element={<Species />}/>
-                  <Route path='*' element={<NoMatch />}/>
-              </Routes>
-          </Suspense>
-      </>
-  );
+    return (
+        <>
+            <NavBar />
+            <Suspense fallback={<div className='container'>Loading...</div>}>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/oceanmap" element={<OceanMap />} />
+                    <Route path="/donations" element={<Donations />} />
+                    <Route path="/articles" element={<Articles />} />
+                    <Route path="/species/:speciesName" element={<Species />} />
+                    <Route path='*' element={<NoMatch />} />
+                </Routes>
+            </Suspense>
+        </>
+    );
 }
 
 export default App;

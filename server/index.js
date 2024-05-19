@@ -17,41 +17,52 @@ mongoose.connect('mongodb://connorearneybs3221:IwT3a5xY75iviD3407DWDJBUPzcMYZPyC
 app.use(bodyParser.json());
 app.use(cors());
 
-// Fetches Species details using species name
-app.get('/api/:species', async (req, res) =>{
-    try {
-      // Find species in database using species name
-      const species = await Species.findOne({ species: req.params.species });
-  
-      // If there is no result, return error
-      if (!species) {
-        return res.status(404).json({ error: 'Species not found' });
-      }
-      res.json(species);
-    } catch (error) {
-      console.error('Error occurred while fetching species data:', error);
-      res.status(500).json({ error: 'Internal server error' });
-    }
-});
-
 // Fetches all Species and returns a list of names
-app.get('api/species', async (req, res) => {
+app.get('/api/species', async (req, res) => {
   try {
     // Query all documents
-    const allSpecies = await Species.find({}, 'species');
+    const allSpecies = await Species.find({});
 
-    //Extract species names
-    const speciesNames = allSpecies.map(species => species.species);
-
-    res.json(speciesNames);
+    res.json(allSpecies);
   } catch (error) {
     console.error('Error occured while fetching species:', error);
-    res.status(500).json({error: 'Internal server error'});
+    res.status(500).json({ error: 'Internal server error' });
   }
 });
 
+// Fetches Species details using species name
+app.get('/api/species/:species', async (req, res) => {
+  try {
+    // Find species in database using species name
+    const species = await Species.findOne({ species: req.params.species });
+
+    // If there is no result, return error
+    if (!species) {
+      return res.status(404).json({ error: 'Species not found' });
+    }
+    res.json(species);
+  } catch (error) {
+    console.error('Error occurred while fetching species data:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Define route to search species
+app.get('/api/search/:q', async (req, res) => {
+  const { q } = req.params; // Get the search query from request parameters
+  try {
+    // Perform search based on the query
+    const species = await Species.find({ species: { $regex: new RegExp(q, 'i') } });
+    res.json({ results: species });
+  } catch (error) {
+    console.error('Error searching species:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
 
 // Start the server
 app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
-  });
+  console.log(`Server is running on port ${port}`);
+});
+
+module.exports = app;

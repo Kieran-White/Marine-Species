@@ -1,37 +1,41 @@
-import React from "react";
 import { useParams } from 'react-router-dom';
+import { useEffect } from "react";
 import "./Species.css";
 import useFetchSpeciesData from "../components/FetchSpeciesData";
 
-export default function Species() {
+export default function Species(){
     const { speciesName } = useParams();
-    const { data: species, loading, error } = useFetchSpeciesData(speciesName);
+    const { species, loading, error } = useFetchSpeciesData(speciesName)
 
-    // Error handling for unexpected errors
-    if (error) {
-        return <div className='profile-page-wrapper'>Error: {error.message}</div>;
-    }
+    useEffect(() => {
+        
+    });
+    
+    console.log(species);
 
-    // If species data is not available, display "Species not found"
+    
     if (!species) {
         return <div className='profile-page-wrapper'>Species not found</div>;
-    }
-
-    // Display loading message while data is being fetched
-    if (loading) {
+      }
+    
+      if (loading) {
         return <div>Loading...</div>;
-    }
+      }
+    
+      if (error) {
+        return <div className='profile-page-wrapper'>Error: {error.message}</div>;
+      }
 
-    // Species data is available, extracting information for display
-    const endangerList = ["least_concern.png", "near_threatened.png", "vulnerable.png", "endangered.png", "critically_endangered.png", "extinct_in_the_wild.png", "extinct.png"];
+      const endangerList = ["least_concern.png", "near_threatened.png", "vulnerable.png", "endangered.png", "critically_endangered.png", "extinct_in_the_wild.png", "extinct.png"];
+    // Define species stats
     const speciesStatus = species.endangerLevel;
     const speciesCommon = species.species;
-    const speciesScientific = species.scientificName;
+    const speciesScientific = species.scientificName;    
     const speciesLength = species.length;
-    // Joining habitats array into a comma-separated string
-    const speciesHabitats = species.habitats.join(", ");
+    const speciesHabitats = species.habitats;
     const speciesInformation = species.information;
 
+    
     return (
         <div className='SpeciesContainer'>
             <div className="SpeciesInfoGrid">
@@ -42,15 +46,15 @@ export default function Species() {
                 />
                 <h2>Status:
                     <img
-                        src={require(`../images/${endangerList[speciesStatus]}`)}
-                        className="StatusImage"
-                        alt={`Endangerment level: ${speciesStatus}`}
+                    src={require(`../images/${endangerList[speciesStatus]}`)}
+                    className="StatusImage"
                     />
                 </h2>
                 <p>Common Name: {speciesCommon}</p>
                 <p>Scientific Name: {speciesScientific}</p>
                 <p>Length: {speciesLength}</p>
                 <p>Habitats: {speciesHabitats}</p>
+
             </div>
             <div className="SpeciesText">
                 <p>{speciesInformation}</p>

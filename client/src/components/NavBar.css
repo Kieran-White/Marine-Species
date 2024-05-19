@@ -1,86 +1,82 @@
 .nav-bar-container {
-  flex: 0 0 auto;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  align-items: center;
-  padding-left: var(--dl-space-space-oneandhalfunits);
-  padding-right: var(--dl-space-space-oneandhalfunits);
-  justify-content: space-between;
-  background-color: #d7d7d7;
-}
+    flex: 0 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    padding-left: var(--dl-space-space-oneandhalfunits);
+    padding-right: var(--dl-space-space-oneandhalfunits);
+    justify-content: space-between;
+    background-color: #d7d7d7;
+  }
 
-.nav-search {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 20px;
-  padding-bottom: 20px;
-  position: relative;
-  /* Make the parent container of the dropdown relative */
-}
-
-.nav-bar-navs {
-  width: auto;
-  height: auto;
-  display: flex;
-  padding: 6px;
-  flex-wrap: wrap;
-  align-items: center;
-  padding: 10px;
-  justify-content: space-between;
-}
-
-.nav-bar-navs a {
-  margin-right: 10px;
-  text-decoration: none;
-}
-
-.search-results-dropdown {
-  position: absolute;
-  top: 100%;
-  /* Position the dropdown below the input */
-  left: 0;
-  z-index: 1000;
-  /* Ensure the dropdown appears above other elements */
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  max-height: 200px;
-  overflow-y: auto;
-  /* Enable vertical scrolling if needed */
-  width: calc(100% - 20px);
-  /* Set dropdown width to match the input width minus padding */
-}
-
-.search-results-dropdown>div {
-  padding: 8px 12px;
-  cursor: pointer;
-}
-
-.search-results-dropdown>div:hover {
-  background-color: #f0f0f0;
-}
-
-@media screen and (max-width: 600px) {
+  .nav-search {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 20px;
+    position: relative; /* Make the parent container of the dropdown relative */
+  }
+  
   .nav-bar-navs {
-    justify-content: flex-start;
+    width: auto;
+    height: auto;
+    display: flex;
+    padding: 6px;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 10px;
+    justify-content: space-between;
   }
-
+  
   .nav-bar-navs a {
-    margin-right: 5px;
+    margin-right: 10px; 
+    text-decoration: none;
   }
+  
+ .search-results-dropdown {
+  position: absolute;
+  top: 100%; /* Position the dropdown below the input */
+  left: 0;
+  z-index: 1000; /* Ensure the dropdown appears above other elements */
+  background-color: #fff; 
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  max-height: 200px; 
+  overflow-y: auto; /* Enable vertical scrolling if needed */
+  width: calc(100% - 20px); /* Set dropdown width to match the input width minus padding */
 }
 
-.nav-bar-navs a:hover {
-  background-color: #c5c7c9;
-  padding: 10px;
+.search-results-dropdown > div {
+  padding: 8px 12px; 
+  cursor: pointer; 
 }
 
-.nav-bar-search-bar {
-  margin-top: var(--dl-space-space-halfunit);
-  margin-bottom: var(--dl-space-space-halfunit);
-  padding-right: 20px;
+.search-results-dropdown > div:hover {
+  background-color: #f0f0f0; 
 }
+
+  @media screen and (max-width: 600px) {
+    .nav-bar-navs {
+      justify-content: flex-start;
+    }
+    
+    .nav-bar-navs a {
+      margin-right: 5px;
+    }
+  }
+  
+  .nav-bar-navs a:hover {
+    background-color: #c5c7c9;
+    padding: 10px;
+  }
+  
+  .nav-bar-search-bar {
+    margin-top: var(--dl-space-space-halfunit);
+    margin-bottom: var(--dl-space-space-halfunit);
+    padding-right: 20px;
+  }
+  

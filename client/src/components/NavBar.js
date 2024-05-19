@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import './NavBar.css';
 
-export default function NavBar() {
+export default function NavBar(){
     const [searchQuery, setSearchQuery] = useState("");
     const [searchResults, setSearchResults] = useState([]);
     let timerId;
@@ -10,17 +10,17 @@ export default function NavBar() {
     const handleSearchInputChange = (event) => {
         const query = event.target.value;
         setSearchQuery(query);
-
+        
         clearTimeout(timerId);
 
         if (query === "") {
             timerId = setTimeout(() => {
                 setSearchResults([]);
-            }, 1000);
+                }, 1000);
         } else {
             timerId = setTimeout(() => {
                 fetchSearchResults(query);
-            }, 900);
+                }, 900);
         }
     };
 
@@ -44,12 +44,12 @@ export default function NavBar() {
                 <nav className='nav-bar-navs'>
                     <NavLink to="/">Home</NavLink>
                     <NavLink to="/oceanmap">OceanMap</NavLink>
-                    <NavLink to="/donations">Donations</NavLink>
+                    <NavLink to="/donations">Donations</NavLink>                
                     <NavLink to="/articles">Articles</NavLink>
                 </nav>
-                <input
-                    type="text"
-                    placeholder="Search"
+                <input 
+                    type="text" 
+                    placeholder="Search" 
                     className='nav-bar-search-bar'
                     value={searchQuery}
                     onChange={handleSearchInputChange}

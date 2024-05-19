@@ -1,0 +1,122 @@
+.map-container {
+    position: relative;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 1570px;
+    height: 1000px;
+}
+
+.interactive-map {
+    display: block;
+    height: auto;
+    width: 100%;
+    z-index: 1;
+}
+
+.marker-1 {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 590px; 
+    left: 430px;
+    background-color: red;
+    border-radius: 50%;
+    z-index: 2;
+    cursor: pointer;
+}
+.marker-2 {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 510px; 
+    left: 293px;
+    background-color: red;
+    border-radius: 50%;
+    z-index: 2;
+    cursor: pointer;
+}
+.marker-3 {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 640px; 
+    left: 773px;
+    background-color: red;
+    border-radius: 50%;
+    z-index: 2;
+    cursor: pointer;
+}
+.marker-4 {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 900px; 
+    left: 900px;
+    background-color: red;
+    border-radius: 50%;
+    z-index: 2;
+    cursor: pointer;
+}
+.marker-5 {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 310px; 
+    left: 1405px;
+    background-color: red;
+    border-radius: 50%;
+    z-index: 2;
+    cursor: pointer;
+}
+.marker-6 {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 480px; 
+    left: 880px;
+    background-color: red;
+    border-radius: 50%;
+    z-index: 2;
+    cursor: pointer;
+}
+.marker-7 {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 545px; 
+    left: 1080px;
+    background-color: red;
+    border-radius: 50%;
+    z-index: 2;
+    cursor: pointer;
+}
+.marker-8 {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 620px; 
+    left: 1200px;
+    background-color: red;
+    border-radius: 50%;
+    z-index: 2;
+    cursor: pointer;
+}
+.marker-9 {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 260px; 
+    left: 525px;
+    background-color: red;
+    border-radius: 50%;
+    z-index: 2;
+    cursor: pointer;
+}
+.hover-image {
+    height: 100px;
+    width: 88px;
+    background-image: url(../images/hawksbill_turtle.jpg);
+}
